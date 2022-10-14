@@ -9,6 +9,11 @@ function save() {
 
 
 class ScrawlsService {
+  deleteScrawl() {
+    appState.scrawls = appState.scrawls.filter(s => s.id != appState.activeScrawl.id)
+    appState.activeScrawl = null
+    save()
+  }
   updateScrawl(formData) {
     appState.activeScrawl.body = formData.body
     appState.activeScrawl.links = formData.links || appState.activeScrawl.links

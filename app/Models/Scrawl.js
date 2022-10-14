@@ -23,6 +23,7 @@ export class Scrawl {
           <div class="mt-3 bg-dark p-1 d-flex align-items-center px-2">
             <b class="me-1 text-white">${this.title} > </b> 
             <button type="button" class="btn text-white text-uppercase" onclick="app.scrawlsController.showEdit()">Edit</button>
+            <button type="button" class="btn text-white text-uppercase" onclick="app.scrawlsController.delete()">Delete</button>
           </div>
           <div class="p-3">${this.body}</div>
         </div>

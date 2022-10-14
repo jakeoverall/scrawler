@@ -74,5 +74,11 @@ export class ScrawlsController {
     setHTML('active-scrawl', appState.activeScrawl.EditableTemplate)
   }
 
+  async delete() {
+    const yes = await Pop.confirm(`Delete ${appState.activeScrawl.title}?`, 'Are you sure you want to delete this Scrawl?')
+    if (!yes) { return }
+    scrawlsService.deleteScrawl()
+  }
+
 
 }

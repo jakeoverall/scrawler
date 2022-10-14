@@ -7,6 +7,9 @@ export function saveState(key, value) {
       data = JSON.stringify(data)
     }
     window.localStorage.setItem(key, data)
+    if (typeof value == 'undefined' || value == null) {
+      window.localStorage.removeItem(key)
+    }
   } catch (error) {
     console.error('[SAVING_STATE]', { key, value })
     Pop.error(error)
@@ -22,7 +25,7 @@ export function loadState(key, instanceType) {
     if (Array.isArray(data) && instanceType) {
       return data.map(i => new instanceType(i))
     }
-    if (instanceType) {
+    if (instanceType && data) {
       return new instanceType(data)
     }
     return data
