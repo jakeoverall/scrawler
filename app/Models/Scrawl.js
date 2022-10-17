@@ -19,27 +19,25 @@ export class Scrawl {
 
   get ActiveTemplate() {
     return /*html*/`
-        <div>
-          <div class="mt-3 bg-dark p-1 d-flex align-items-center px-2">
-            <b class="me-1 text-white">${this.title} > </b> 
-            <button type="button" class="btn text-white text-uppercase" onclick="app.scrawlsController.showEdit()">Edit</button>
-            <button type="button" class="btn text-white text-uppercase" onclick="app.scrawlsController.delete()">Delete</button>
-          </div>
-          <div class="p-3">${this.body}</div>
+      <div>
+        <div class="bg-dark p-1 d-flex align-items-center px-2">
+          <b class="me-1 text-white">${this.title} > </b> 
+          <button type="button" class="btn text-white text-uppercase" onclick="app.scrawlsController.showEdit()">Edit</button>
+          <button type="button" class="btn text-white text-uppercase" onclick="app.scrawlsController.delete()">Delete</button>
         </div>
+        <div class="p-3">${this.body}</div>
+      </div>
     `
   }
 
   get EditableTemplate() {
     return /*html*/`
       <form onsubmit="app.scrawlsController.updateScrawl()">
-        <div class="mt-3 bg-dark p-1 d-flex align-items-center px-2">
-        <b class="me-1 text-white">${this.title} > </b>  
-        <button type="submit" class="btn text-white text-uppercase">Preview</button>
+        <div class="bg-dark p-1 d-flex align-items-center px-2">
+          <b class="me-1 text-white">${this.title} > </b>  
+          <button type="submit" class="btn text-white text-uppercase">Preview</button>
         </div>
-      </div>
-          <h4 class="my-4">${this.title}</h4>
-          <textarea class="form-control" name="body" rows="15">${this.body}</textarea>
+        <textarea class="form-control square-top" name="body">${this.body}</textarea>
       </form>
     `
   }
